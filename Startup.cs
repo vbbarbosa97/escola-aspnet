@@ -21,7 +21,9 @@ namespace escola_aspnet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(db => db.UseSqlite(Configuration.GetConnectionString("ConexaoBanco")));
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddScoped<IRepository, Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace escola_aspnet.Models
 {
     public class Aluno
@@ -15,5 +17,7 @@ namespace escola_aspnet.Models
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Telefone { get; set; }
+
+        public IEnumerable<AlunoDisciplina> AlunoDisciplina {get; set;}
     }
 }
